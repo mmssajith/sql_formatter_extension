@@ -1,0 +1,135 @@
+{
+  "name": "sql-formatter",
+  "displayName": "SQL Formatter",
+  "description": "Format SQL files using SQLFluff",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/sql-formatter-extension"
+  },
+  "icon": "images/icon.ico",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:sql"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sql-formatter.format",
+        "title": "Format SQL with SQLFluff"
+      }
+    ],
+    "languages": [
+      {
+        "id": "sql",
+        "extensions": [
+          ".sql"
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "SQL Formatter",
+      "properties": {
+        "sql-formatter.dialect": {
+          "type": "string",
+          "default": "ansi",
+          "enum": [
+            "ansi",
+            "athena",
+            "bigquery",
+            "clickhouse",
+            "databricks",
+            "db2",
+            "duckdb",
+            "exasol",
+            "greenplum",
+            "hive",
+            "impala",
+            "mariadb",
+            "materialize",
+            "mysql",
+            "oracle",
+            "postgres",
+            "redshift",
+            "snowflake",
+            "soql",
+            "sparksql",
+            "sqlite",
+            "starrocks",
+            "teradata",
+            "trino",
+            "tsql",
+            "vertica"
+          ],
+          "enumDescriptions": [
+            "ANSI SQL",
+            "AWS Athena",
+            "Google BigQuery",
+            "ClickHouse",
+            "Databricks (inherits from Spark SQL)",
+            "IBM DB2",
+            "DuckDB (inherits from PostgreSQL)",
+            "Exasol",
+            "Greenplum (inherits from PostgreSQL)",
+            "Apache Hive",
+            "Apache Impala (inherits from Hive)",
+            "MariaDB (inherits from MySQL)",
+            "Materialize (inherits from PostgreSQL)",
+            "MySQL",
+            "Oracle",
+            "PostgreSQL",
+            "Amazon Redshift (inherits from PostgreSQL)",
+            "Snowflake",
+            "Salesforce Object Query Language (SOQL)",
+            "Spark SQL",
+            "SQLite",
+            "StarRocks (inherits from MySQL)",
+            "Teradata",
+            "Trino",
+            "T-SQL (SQL Server)",
+            "Vertica"
+          ],
+          "description": "SQL dialect to use for formatting"
+        },
+        "sql-formatter.rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Specific SQLFluff rules to apply during formatting"
+        },
+        "sql-formatter.verboseLogging": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable verbose logging for debugging purposes"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.98.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
