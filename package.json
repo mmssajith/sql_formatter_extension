@@ -1,8 +1,9 @@
 {
-  "name": "sql-formatter",
-  "displayName": "SQL Formatter",
+  "name": "global-sql-formatter",
+  "displayName": "SQL Formatter Pro",
   "description": "Format SQL files using SQLFluff",
   "version": "0.0.1",
+  "publisher": "Sajith",
   "repository": {
     "type": "git",
     "url": "https://github.com/yourusername/sql-formatter-extension"
